@@ -1,0 +1,91 @@
+# Create a Ubuntu VM as the local environment
+
+We provide a Ubuntu 22.04 LTS OVA file which can be imported as a virtual machine (VM) so that you can use the VM as your local environment. 
+
+### 1. Download and import the OVA file
+#### 1) Download VirtualBox
+VirtualBox can be downloaded from [the official website](https://www.virtualbox.org/wiki/Downloads). Version 7 is recommended.
+
+#### 2) Download the OVA file
+The OVA file can be downloaded [here](https://helsinkifi-my.sharepoint.com/:u:/g/personal/luoyumo_ad_helsinki_fi/EZ3mHwXyGcdItbl0gx6MKZIB0N6yVXVTcLR5jlb7PWeuGA?e=2hcmNa).
+
+#### 3) Import the OVA file in VirtualBox
+1. Open VirtualBox
+2. Click File -> Import Appliance
+
+<img src="./images/import-ova.png" width=560>
+
+3. Select the downloaded OVA file, click Next -> Finish
+
+### 2. Start the virtual machine
+After importing the OVA file, you will see a VM created. 
+
+Let's first enable bidirectional shared clipboard so you can copy/paste text from your host to VM (and vice versa). You can do this by going to VirtualBox Manager control panel -> clicking Settings -> General -> Advanced -> setting Shared Clipboard to bidirectional. (You can also set Drag'n'Drop to bidirectional so you can drag and drop files and directories from your host to VM and vice versa, but this functionality may not work for some host operating systems.)
+
+<img src="./images/shared-clipboard.png" width=500>
+
+If your screen starts flickering, try resizing your virtual screen to a larger resolution:
+
+<img src="./images/reset_screen_resolution.png" >
+
+!! DO NOT UPGRADE THE INSTALLED GUEST OS (UBUNTU OS 22.04) when prompted. This is to ensure continued compatibility with existing tools in the conda yaml.
+
+
+### 3. Log in to the virtual machine
+Now, you can log in to your VM. The username is "**user**" and the password for admin privilege is "**password**". 
+
+*Note*: the default keyboard layout of the VM is Finnish, you can configure the keyboard layouts following [this article](https://help.ubuntu.com/stable/ubuntu-help/keyboard-layouts.html.en).
+
+### 4. Download the course repository
+---
+In your VM, open a terminal (ctrl+alt+t) and run the following command to download the course repository:
+```bash
+git clone git@version.helsinki.fi:mlops/engineering_of_ml_systems.git # cloning with ssh
+
+git clone https://version.helsinki.fi/mlops/engineering_of_ml_systems.git # cloning with https
+# You will be asked to enter a username and password, these are your university credentials. 
+```
+
+Prior to installing the packages, ensure that the gcc compiler is available
+
+```
+gcc --version
+```
+If the gcc compiler is not available, install it since it is required by the pip installer when setting up the conda environment.
+
+```
+sudo apt update
+sudo apt install gcc
+```
+
+Set up your conda env. 
+```bash
+# Under the same directory as this file
+conda env create -f mlops_eng_environment.yaml # The YAML file located in the same directory as this doc
+
+# Switch to the created conda environment
+conda activate mlops_eng
+```
+
+And go to the `engineering_of_ml_systems/pre-materials` directory:
+```bash
+cd <path_to_engineering_of_ml_systems>/pre-materials
+```
+You can use Visual Studio Code (VS Code) to open the directory:
+```bash
+# Under the pre-materials repository
+code .
+```
+Open the `README.md` and you'll see the same instructions. You can open a preview of a Markdown file by clicking the button shown below in the upper-right corner.
+
+<img src="./images/md-preview-button.png" width=1000/>
+
+---
+
+#### Backup course materials (Optional)
+It's a good practice a back up the course materials you'll be working on so you won't loss them (especially your work-in-progress assignments) when your VM crashes. Note that your modifications on the files in your VM won't be synchronized to your host so you need to take care of the backup, e.g., using GitHub or some other cloud services like OneDrive or Google Drive. Alternatively, you can also back up the whole virtual machine by creating an OVA file for it, as shown in this [video](https://www.youtube.com/watch?v=9qSTS-RgOA0).
+
+---
+
+After finishing the preparation, continue with the "2. Create a VM in cPouta" section in the [main instructions](../README.md#2-create-a-vm-in-cpouta). 
+

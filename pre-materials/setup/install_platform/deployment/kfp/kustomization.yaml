@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: kubeflow
+
+resources:
+- kfp-ingress.yaml
+- aws-secret.yaml
+- https://github.com/kubeflow/pipelines/manifests/kustomize/cluster-scoped-resources?ref=2.14.4&timeout=90s
+- https://github.com/kubeflow/pipelines/manifests/kustomize/env/platform-agnostic-emissary?ref=2.14.4&timeout=90s
+# ?ref=2.0.5 specifies the version of the Kubeflow Pipelines to be installed. ?timeout=90s specifies the timeout for the download of the manifests.
+
+images:
+  - name: minio/minio:RELEASE.2019-08-14T20-37-41Z
+    newName: pgsty/silo
+    newTag: RELEASE.2026-09-16T00-00-00Z
