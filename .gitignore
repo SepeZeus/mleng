@@ -1,3 +1,10 @@
 1_training_and_evaluation/week1_assignments_scs _test.ipynb
 1_training_and_evaluation/week1_assignments.html
 1_training_and_evaluation/week1_assignments_scs _test.pdf
+2_data_preprocessing/feature_store/housing_test_X.parquet
+2_data_preprocessing/feature_store/housing_test_y.csv
+2_data_preprocessing/feature_store/housing_train_X.parquet
+.gitignore
+2_data_preprocessing/feature_store/encoders/housing_target_encoder.pkl
+.gitignore
+2_data_preprocessing/feature_store/housing_train_y.csv
