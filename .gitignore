@@ -8,3 +8,10 @@
 2_data_preprocessing/feature_store/encoders/housing_target_encoder.pkl
 .gitignore
 2_data_preprocessing/feature_store/housing_train_y.csv
+2_data_preprocessing/__pycache__/etl.cpython-311.pyc
+2_data_preprocessing/feature_store/2016_test_X.parquet
+2_data_preprocessing/feature_store/2016_test_y.csv
+2_data_preprocessing/feature_store/housing_test_X_important.parquet
+2_data_preprocessing/feature_store/housing_train_X_important.parquet
+2_data_preprocessing/gx/checkpoints/checkpoint_2016.yml
+2_data_preprocessing/gx/expectations/housing_expectation_suite.json
