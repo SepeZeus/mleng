@@ -7,6 +7,11 @@ spec:
   predictor:
     serviceAccountName: kserve-sa
     ### START CONF HERE
+    model:
+      modelFormat:
+        name: mlflow
+      protocolVersion: v2
+      storageUri: s3://mlflow/9/48af64fb6ee04ab89c51b909fa827119/artifacts/xgb-bike
     ### END CONF HERE
 ---
 apiVersion: serving.kserve.io/v1beta1
@@ -18,4 +23,9 @@ spec:
   predictor:
     serviceAccountName: kserve-sa
     ### START CONF HERE
+    model:
+      modelFormat:
+        name: mlflow
+      protocolVersion: v2
+      storageUri: s3://mlflow/9/a8a3a23d571c472a9c5a9d96fddc7909/artifacts/xgb-bike
     ### END CONF HERE

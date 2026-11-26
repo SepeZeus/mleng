@@ -15,3 +15,4 @@
 2_data_preprocessing/feature_store/housing_train_X_important.parquet
 2_data_preprocessing/gx/checkpoints/checkpoint_2016.yml
 2_data_preprocessing/gx/expectations/housing_expectation_suite.json
+4_deployment/.metrics/histogram_6793.db
